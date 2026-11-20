@@ -16,7 +16,7 @@ using UnityEngine.InputSystem;
 // It will NOT easily enable you to add animations or sound or similar effects.
 
 // This script automatically adds a PlayerInput, Rigidbody2D and a CapsuleCollider2D component in the inspector.
-[RequireComponent(typeof(PlayerInput), typeof(Rigidbody2D), typeof(CapsuleCollider2D))]
+[RequireComponent(typeof(PlayerInput), typeof(Rigidbody2D), typeof(BoxCollider2D))]
 public class LimitedPlatformerMovement : MonoBehaviour
 {
     [SerializeField] private float maxSpeed = 10f;
@@ -26,13 +26,13 @@ public class LimitedPlatformerMovement : MonoBehaviour
     private bool jumpInput;
     
     private Rigidbody2D rb;
-    private CapsuleCollider2D groundCheckCollider; 
+    private BoxCollider2D groundCheckCollider; 
 
     
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        groundCheckCollider = GetComponent<CapsuleCollider2D>();
+        groundCheckCollider = GetComponent<BoxCollider2D>();
     }
     
     void Update()
